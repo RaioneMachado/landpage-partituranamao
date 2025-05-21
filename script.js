@@ -1,159 +1,174 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu Mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
+    // Efeito de hover nos cards
+    const instrumentCards = document.querySelectorAll('.instrument-card');
     
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        this.querySelector('i').classList.toggle('fa-times');
-        this.querySelector('i').classList.toggle('fa-bars');
-    });
-    
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            nav.classList.remove('active');
-            menuToggle.querySelector('i').classList.remove('fa-times');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-        });
-    });
-    
-    // Scroll suave para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+    instrumentCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const instrument = this.getAttribute('data-instrument');
+            const img = this.querySelector('img');
             
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            // Adiciona classe de efeito
+            this.classList.add('glow-effect');
             
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            // Efeito na imagem
+            if (img) {
+                img.style.transition = 'transform 0.3s ease, filter 0.3s ease';
+                img.style.filter = 'drop-shadow(0 0 15px rgba(255, 215, 0, 0.5))';
             }
         });
-    });
-    
-    // Efeito de mudança no header ao rolar
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(17, 24, 39, 0.95)';
-            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
-        } else {
-            header.style.background = 'rgba(17, 24, 39, 0.8)';
-            header.style.boxShadow = 'none';
+        
+        card.addEventListener('mouseleave', function() {
+            const img = this.querySelector('img');
+            
+            // Remove classe de efeito
+            this.classList.remove('glow-effect');
+            
+            // Remove efeito na imagem
+            if (img) {
+                img.style.filter = 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))';
+            }
+        });
+        
+        // Redirecionamento ao clicar no botão
+        const buyBtn = card.querySelector('.btn-buy');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', function() {
+                const instrument = card.getAttribute('data-instrument');
+                // Aqui você pode redirecionar para a página específica do instrumento
+                // window.location.href = `partituras/${instrument}.html`;
+                alert(`Redirecionando para partituras de ${instrument}`);
+            });
         }
     });
     
-    // Animação GSAP
-    gsap.registerEffect({
-        name: "fade",
-        effect: (targets, config) => {
-            return gsap.from(targets, {
-                opacity: 0,
-                y: 50,
-                duration: config.duration,
-                ease: "power3.out",
-                stagger: config.stagger
-            });
-        },
-        defaults: {duration: 1, stagger: 0.2}
-    });
-    
-    // Aplicar animações
-    gsap.effects.fade(".hero-content h2", {duration: 1.5});
-    gsap.effects.fade(".hero-content p", {duration: 1.5, stagger: 0.1});
-    gsap.effects.fade(".hero-buttons", {duration: 1.5});
-    gsap.effects.fade(".sheet-music-card", {duration: 1.5, delay: 0.5});
-    
-    // Animar elementos ao rolar
-    const animateOnScroll = function() {
-        const sections = document.querySelectorAll('section');
+    // Countdown timer
+    function updateCountdown() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(24, 0, 0, 0);
         
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const sectionHeight = section.offsetHeight;
-            const windowHeight = window.innerHeight;
-            
-            if (sectionTop < windowHeight - sectionHeight / 3) {
-                const items = section.querySelectorAll('.featured-item, .product-card, .benefit-item, .testimonial-item');
-                
-                gsap.effects.fade(items, {duration: 0.8, stagger: 0.1});
-                
-                // Remover o event listener após animar para melhor performance
-                window.removeEventListener('scroll', animateOnScroll);
-            }
-        });
-    };
+        const diff = midnight - now;
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
     
-    window.addEventListener('scroll', animateOnScroll);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
     
-    // Inicializar animações
-    animateOnScroll();
-    
-    // Efeito de digitação no hero (opcional)
-    const heroText = document.querySelector('.hero-content p');
-    if (heroText) {
-        const text = heroText.textContent;
-        heroText.textContent = '';
+    // Efeito de digitação no cabeçalho
+    const headerText = document.querySelector('.header-content h2');
+    if (headerText) {
+        const originalText = headerText.textContent;
+        headerText.textContent = '';
         
         let i = 0;
         const typingEffect = setInterval(() => {
-            if (i < text.length) {
-                heroText.textContent += text.charAt(i);
+            if (i < originalText.length) {
+                headerText.textContent += originalText.charAt(i);
                 i++;
             } else {
                 clearInterval(typingEffect);
             }
-        }, 30);
+        }, 50);
     }
     
-    // Efeito parallax para as luzes de fundo
-    window.addEventListener('mousemove', function(e) {
-        const lightBeam = document.querySelector('.light-beam');
-        const lightBeam2 = document.querySelector('.light-beam-2');
+    // Efeito de scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Efeito de parallax
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.pageYOffset;
+        const lightEffect = document.querySelector('.light-effect');
+        const lightEffect2 = document.querySelector('.light-effect-2');
         
-        if (lightBeam && lightBeam2) {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            lightBeam.style.left = `${x * 100}%`;
-            lightBeam.style.top = `${y * 100}%`;
-            
-            lightBeam2.style.left = `${(1 - x) * 100}%`;
-            lightBeam2.style.top = `${(1 - y) * 100}%`;
+        if (lightEffect) {
+            lightEffect.style.transform = `translate(${scrollPosition * 0.1}px, ${scrollPosition * 0.1}px)`;
+        }
+        
+        if (lightEffect2) {
+            lightEffect2.style.transform = `translate(${scrollPosition * 0.05}px, ${scrollPosition * 0.05}px)`;
         }
     });
     
-    // Auto-scroll para depoimentos
-    const testimonialsSlider = document.querySelector('.testimonials-slider');
-    if (testimonialsSlider) {
-        let scrollAmount = 0;
-        const scrollWidth = testimonialsSlider.scrollWidth - testimonialsSlider.clientWidth;
-        
-        function autoScroll() {
-            if (scrollAmount < scrollWidth) {
-                scrollAmount += 1;
-                testimonialsSlider.scrollLeft = scrollAmount;
-            } else {
-                scrollAmount = 0;
-                testimonialsSlider.scrollLeft = 0;
-            }
-        }
-        
-        let scrollInterval = setInterval(autoScroll, 30);
-        
-        // Pausar ao passar o mouse
-        testimonialsSlider.addEventListener('mouseenter', () => {
-            clearInterval(scrollInterval);
-        });
-        
-        // Retomar quando o mouse sair
-        testimonialsSlider.addEventListener('mouseleave', () => {
-            scrollInterval = setInterval(autoScroll, 30);
+    // Botão principal CTA
+    const mainCTA = document.querySelector('.btn-main');
+    if (mainCTA) {
+        mainCTA.addEventListener('click', function() {
+            document.querySelector('.instrument-grid').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     }
 });
+// Atualizar o contador regressivo da seção em destaque
+function updateFeaturedCountdown() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    
+    const diff = midnight - now;
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    document.getElementById('featured-hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('featured-minutes').textContent = minutes.toString().padStart(2, '0');
+}
+
+updateFeaturedCountdown();
+setInterval(updateFeaturedCountdown, 60000);
+
+// Efeito de clique no botão de destaque
+const featuredBtn = document.querySelector('.featured-btn');
+if (featuredBtn) {
+    featuredBtn.addEventListener('click', function() {
+        // Efeito visual
+        this.classList.add('clicked');
+        setTimeout(() => {
+            this.classList.remove('clicked');
+        }, 300);
+        
+        // Redirecionamento (substitua pela sua lógica)
+        alert('Redirecionando para a página de compra da partitura em destaque!');
+        // window.location.href = 'checkout.html?product=featured';
+    });
+}
+
+// Criar notas musicais dinâmicas
+function createMusicalNotes() {
+    const notesContainer = document.querySelector('.musical-notes');
+    if (!notesContainer) return;
+    
+    const notes = ['♪', '♫', '♩', '♬', '♭', '♮', '♯'];
+    const colors = ['rgba(255, 215, 0, 0.3)', 'rgba(79, 88, 50, 0.3)', 'rgba(255, 107, 107, 0.3)'];
+    
+    for (let i = 0; i < 15; i++) {
+        const note = document.createElement('div');
+        note.className = 'note';
+        note.textContent = notes[Math.floor(Math.random() * notes.length)];
+        note.style.left = `${Math.random() * 100}%`;
+        note.style.top = `${Math.random() * 100}%`;
+        note.style.fontSize = `${Math.random() * 2 + 1}rem`;
+        note.style.color = colors[Math.floor(Math.random() * colors.length)];
+        note.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        note.style.animationDelay = `${Math.random() * 5}s`;
+        
+        notesContainer.appendChild(note);
+    }
+}
+
+createMusicalNotes();

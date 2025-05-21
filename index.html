@@ -3,479 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partituras Premium | Coleção Exclusiva para Músicos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>PARTITURA NA MÃO | Partituras Profissionais</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="light-beam"></div>
-    <div class="light-beam light-beam-2"></div>
-    <div class="particles"></div>
+    <div class="light-effect"></div>
+    <div class="light-effect light-effect-2"></div>
     
     <header>
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon"><i class="fas fa-music"></i></span>
-                <h1>PARTITURA <span>NA MÃO</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#destaques">Destaques</a></li>
-                    <li><a href="#colecao">Coleção</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="logo-container">
+            <img src="imagens[/logo.png" alt="Partitura na Mão" class="logo">
+            <h1>PARTITURA NA MÃO</h1>
+        </div>
+        <div class="header-content">
+            <h2>Partituras Profissionais para Todos os Instrumentos</h2>
+            <p>Transforme sua música com nossas partituras de alta qualidade</p>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2 class="glitch" data-text="PARTITURAS PROFISSIONAIS">PARTITURAS PROFISSIONAIS</h2>
-                <p>Coleção digital premium para músicos que buscam excelência</p>
-                <div class="hero-buttons">
-                    <a href="#colecao" class="btn btn-primary pulse">Explorar Partituras</a>
-                    <a href="#destaques" class="btn btn-secondary">Ver Destaques</a>
+    <main>
+        <section class="instrument-grid">
+            <div class="instrument-card" data-instrument="flauta">
+                <div class="instrument-image">
+                    <img src="images/flauta.png" alt="Flauta">
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="sheet-music-card">
-                    <div class="sheet-music glimmer"></div>
-                    <div class="music-notes">
-                        <i class="fas fa-music"></i>
-                        <i class="fas fa-music"></i>
-                        <i class="fas fa-music"></i>
-                    </div>
+                <h3>Flauta</h3>
+                <p class="instrument-description">Partituras Flauta, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
                 </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
             </div>
-        </div>
-    </section>
 
-    <section id="destaques" class="featured">
-        <div class="container">
-            <h2 class="section-title"><span>Destaques</span></h2>
-            <div class="featured-grid">
-                <div class="featured-item">
-                    <div class="featured-icon neon-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Qualidade Premium</h3>
-                    <p>Partituras digitais de altíssima qualidade, com notação precisa e formatação profissional.</p>
+            <div class="instrument-card" data-instrument="clarinete">
+                <div class="instrument-image">
+                    <img src="images/clarinete.png" alt="Clarinete">
                 </div>
-                <div class="featured-item">
-                    <div class="featured-icon neon-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Download Imediato</h3>
-                    <p>Acesso instantâneo após a compra. Comece a tocar em minutos!</p>
+                <h3>Clarinete</h3>
+                <p class="instrument-description">Partituras Clarinete, 20 partituras + playbacks .</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
                 </div>
-                <div class="featured-item">
-                    <div class="featured-icon neon-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Multiplataforma</h3>
-                    <p>Compatível com tablets, smartphones e computadores. Toque em qualquer lugar.</p>
-                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
             </div>
-        </div>
-    </section>
 
-    <section id="colecao" class="collection">
-        <div class="container">
-            <h2 class="section-title"><span>Nossa Coleção</span></h2>
-            <div class="collection-grid">
-                <!-- Produto 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+1" alt="Partitura 1">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink1" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sonata Clássica</h3>
-                        <p>Partitura completa para piano solo</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
+            <div class="instrument-card" data-instrument="sax-alto">
+                <div class="instrument-image">
+                    <img src="images/sax-alto.png" alt="Sax Alto">
                 </div>
-                
-                <!-- Produto 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+2" alt="Partitura 2">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink2" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Jazz Moderno</h3>
-                        <p>Arranjo para quarteto de jazz</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
+                <h3>Sax Alto</h3>
+                <p class="instrument-description">Partituras Sax Alto, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
                 </div>
-                
-                <!-- Produto 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+3" alt="Partitura 3">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink3" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Rock Progressivo</h3>
-                        <p>Partitura para banda completa</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+4" alt="Partitura 4">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink4" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Música Contemporânea</h3>
-                        <p>Composições modernas para piano</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+5" alt="Partitura 5">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink5" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Clássicos do Cinema</h3>
-                        <p>Partituras de trilhas famosas</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+6" alt="Partitura 6">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink6" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>MPB Essencial</h3>
-                        <p>Grandes sucessos da música brasileira</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 7 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+7" alt="Partitura 7">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink7" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Violino Clássico</h3>
-                        <p>Peças essenciais para violino</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 8 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+8" alt="Partitura 8">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink8" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Guitarra Rock</h3>
-                        <p>Riffs e solos famosos</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 9 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+9" alt="Partitura 9">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink9" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Bossa Nova</h3>
-                        <p>Clássicos da música brasileira</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Produto 10 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/300x400/111827/ffffff?text=Partitura+10" alt="Partitura 10">
-                        <div class="product-hover">
-                            <a href="https://kiwify.com/seulink10" class="btn btn-primary" target="_blank">Comprar Agora</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Música Barroca</h3>
-                        <p>Obras primas do período barroco</p>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
             </div>
-        </div>
-    </section>
 
-    <section id="beneficios" class="benefits">
-        <div class="container">
-            <h2 class="section-title"><span>Por que escolher nossas partituras?</span></h2>
-            <div class="benefits-content">
-                <div class="benefits-image">
-                    <div class="rotating-devices">
-                        <div class="device tablet">
-                            <div class="screen">
-                                <div class="sheet-music-preview"></div>
-                            </div>
-                        </div>
-                        <div class="device phone">
-                            <div class="screen">
-                                <div class="sheet-music-preview"></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="instrument-card" data-instrument="sax-tenor">
+                <div class="instrument-image">
+                    <img src="images/sax-tenor.png" alt="Sax Tenor">
                 </div>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Notação Precisa</h3>
-                            <p>Cada nota, dinâmica e articulação cuidadosamente verificada por profissionais.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Formatação Otimizada</h3>
-                            <p>Layout limpo e organizado para facilitar a leitura durante a performance.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Edição Digital</h3>
-                            <p>Compatível com editores de partitura como Finale, Sibelius e MuseScore.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Suporte Técnico</h3>
-                            <p>Assistência rápida para qualquer dúvida ou problema com seus arquivos.</p>
-                        </div>
-                    </div>
+                <h3>Sax Tenor</h3>
+                <p class="instrument-description">Partituras Sax Tenor, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
                 </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
             </div>
-        </div>
-    </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title"><span>O que dizem nossos clientes</span></h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p>"As partituras são incrivelmente precisas e bem formatadas. Facilitou muito meus estudos!"</p>
-                        <div class="testimonial-author">
-                            <h4>Carlos Eduardo</h4>
-                            <span>Pianista Profissional</span>
-                        </div>
-                    </div>
+            <div class="instrument-card" data-instrument="trompete">
+                <div class="instrument-image">
+                    <img src="images/trompete.png" alt="Trompete">
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p>"Finalmente encontrei partituras digitais de qualidade para meu repertório de violino. Recomendo!"</p>
-                        <div class="testimonial-author">
-                            <h4>Ana Beatriz</h4>
-                            <span>Professora de Música</span>
-                        </div>
-                    </div>
+                <h3>Trompete</h3>
+                <p class="instrument-description">Partituras Trompete, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
                 </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p>"A facilidade de acesso e a qualidade das partituras superaram minhas expectativas. Voltarei a comprar!"</p>
-                        <div class="testimonial-author">
-                            <h4>Ricardo Almeida</h4>
-                            <span>Maestro</span>
-                        </div>
-                    </div>
-                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
             </div>
-        </div>
-    </section>
 
-    <section id="contato" class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Pronto para elevar sua experiência musical?</h2>
-                <p>Adquira agora nossas partituras premium e transforme sua performance</p>
-                <a href="#colecao" class="btn btn-primary btn-large pulse">Explorar Coleção Completa</a>
+            <div class="instrument-card" data-instrument="trombone">
+                <div class="instrument-image">
+                    <img src="images/trombone.png" alt="Trombone">
+                </div>
+                <h3>Trombone</h3>
+                <p class="instrument-description">Partituras Trombone, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
+                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
+            </div>
+
+            <div class="instrument-card" data-instrument="violino">
+                <div class="instrument-image">
+                    <img src="images/violino.png" alt="Violino">
+                </div>
+                <h3>Violino</h3>
+                <p class="instrument-description">Partituras Violino, 20 partituras + playbacks .</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
+                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
+            </div>
+
+            <div class="instrument-card" data-instrument="viola">
+                <div class="instrument-image">
+                    <img src="images/viola.png" alt="Viola">
+                </div>
+                <h3>Viola</h3>
+                <p class="instrument-description">Partituras Viola, 20 partituras + playbacks .</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
+                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
+            </div>
+
+            <div class="instrument-card" data-instrument="violoncelo">
+                <div class="instrument-image">
+                    <img src="images/violoncelo.png" alt="Violoncelo">
+                </div>
+                <h3>Violoncelo</h3>
+                <p class="instrument-description">Partituras Violoncelo, 20 partituras + playbacks.</p>
+                <div class="price-container">
+                    <span class="old-price">R$49,90</span>
+                    <span class="new-price">R$29,90</span>
+                </div>
+                <button class="btn-buy">COMPRAR AGORA</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Não perca esta promoção especial!</h2>
+            <p>Adquira já suas partituras com <strong>40% de desconto</strong> por tempo limitado</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span>Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span>Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span>Segundos</span>
+                </div>
+            </div>
+            <button class="btn-main">ESCOLHA SEU INSTRUMENTO ACIMA</button>
+        </section>
+    </main>
+
+    <section class="featured-section">
+    <div class="featured-bg"></div>
+    <div class="musical-notes">
+        <div class="note">♪</div>
+        <div class="note">♫</div>
+        <div class="note">♩</div>
+        <div class="note">♬</div>
+        <div class="note">♭</div>
+    </div>
+    
+    <div class="featured-content">
+        <div class="featured-badge">DESTAQUE</div>
+        <h2>Música em Destaque da Semana</h2>
+        <p class="featured-description">"Clair de Lune" de Debussy - Edição Especial Anotada</p>
+        
+        <div class="featured-instrument">
+            <img src="images/piano.png" alt="Piano" class="featured-image">
+            <div class="featured-info">
+                <h3>Partitura Completa + Análise Musical</h3>
+                <ul class="featured-benefits">
+                    <li><i class="fas fa-check"></i> Notação detalhada com expressões</li>
+                    <li><i class="fas fa-check"></i> Análise harmônica completa</li>
+                    <li><i class="fas fa-check"></i> Dicas de interpretação</li>
+                    <li><i class="fas fa-check"></i> Versão digital e impressa</li>
+                </ul>
+                
+                <div class="featured-price">
+                    <div class="price-comparison">
+                        <span class="original-price">De: R$89,90</span>
+                        <span class="discount">60% OFF</span>
+                    </div>
+                    <div class="final-price">Por: R$35,90</div>
+                </div>
+                
+                <button class="featured-btn">
+                    <span>COMPRAR AGORA</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <div class="featured-timer">
+                    <i class="fas fa-clock"></i>
+                    <span>Oferta válida por: <strong id="featured-hours">23</strong>h <strong id="featured-minutes">59</strong>m</span>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    
+    <div class="sheet-music-preview">
+        <div class="sheet-music-scroll">
+            <img src="images/sheet-music-preview.png" alt="Pré-visualização da partitura">
+        </div>
+        <div class="zoom-hint">
+            <i class="fas fa-search-plus"></i> Passe o mouse para zoom
+        </div>
+    </div>
+</section>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo">
-                        <span class="logo-icon"><i class="fas fa-music"></i></span>
-                        <h3>PARTITURAS<span>TECH</span></h3>
-                    </div>
-                    <p>Partituras digitais premium para músicos exigentes.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#destaques">Destaques</a></li>
-                        <li><a href="#colecao">Coleção</a></li>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Suporte</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Central de Ajuda</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> contato@partiturastech.com</li>
-                        <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="imagens[/logo.png" alt="Partitura na Mão" class="logo">
+                <h3>PARTITURA NA MÃO</h3>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 PartiturasTech. Todos os direitos reservados.</p>
+            <p>© 2025 Partitura na Mão. Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
