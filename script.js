@@ -172,3 +172,131 @@ function createMusicalNotes() {
 }
 
 createMusicalNotes();
+// Animação 3D dos instrumentos
+function animate3dInstruments() {
+    const instruments = document.querySelectorAll('.instrument-3d');
+    if (!instruments.length) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) - 0.5;
+        mouseY = (e.clientY / window.innerHeight) - 0.5;
+    });
+    
+    function updateInstruments() {
+        instruments.forEach(instrument => {
+            const instrumentType = instrument.getAttribute('data-instrument');
+            let rotateX, rotateY;
+            
+            switch(instrumentType) {
+                case 'flauta':
+                    rotateX = mouseY * 20;
+                    rotateY = mouseX * 20;
+                    instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
+                    break;
+                case 'violino':
+                    rotateX = mouseY * 20;
+                    rotateY = mouseX * 20;
+                    instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
+                    break;
+                case 'trompete':
+                    rotateX = mouseY * 20;
+                    rotateY = mouseX * 20;
+                    instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
+                    break;
+                case 'violoncelo':
+                    rotateX = mouseY * 20;
+                    rotateY = mouseX * 20;
+                    instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
+                    break;
+            }
+        });
+        
+        requestAnimationFrame(updateInstruments);
+    }
+    
+    updateInstruments();
+}
+
+animate3dInstruments();
+
+// Efeito de clique no botão do pacote
+const orchestraBtn = document.querySelector('.orchestra-btn');
+if (orchestraBtn) {
+    orchestraBtn.addEventListener('click', function() {
+        // Efeito de clique
+        this.classList.add('clicked');
+        setTimeout(() => {
+            this.classList.remove('clicked');
+        }, 300);
+        
+        // Efeito de confete
+        createConfetti();
+        
+        // Redirecionamento (substitua pela sua lógica)
+        setTimeout(() => {
+            alert('Redirecionando para a página de compra do Pacote Orquestral!');
+            // window.location.href = 'checkout.html?product=orchestra-pack';
+        }, 1000);
+    });
+}
+
+// Efeito de confete
+function createConfetti() {
+    const colors = ['#4F5832', '#FFD700', '#FF6B6B', '#ffffff'];
+    const container = document.querySelector('.orchestra-section');
+    
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+        confetti.style.width = `${Math.random() * 10 + 5}px`;
+        confetti.style.height = `${Math.random() * 10 + 5}px`;
+        confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        
+        container.appendChild(confetti);
+        
+        setTimeout(() => {
+            confetti.remove();
+        }, 3000);
+    }
+}
+
+// Adicionar estilos dinâmicos para o confetti
+const style = document.createElement('style');
+style.textContent = `
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        animation: confetti-fall linear forwards;
+        z-index: 10;
+    }
+    
+    @keyframes confetti-fall {
+        0% {
+            top: -10px;
+            opacity: 1;
+        }
+        100% {
+            top: 100%;
+            opacity: 0;
+            transform: rotate(720deg) translateX(50px);
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Scroll suave para os instrumentos incluídos
+const scrollHint = document.querySelector('.orchestra-scroll-hint');
+if (scrollHint) {
+    scrollHint.addEventListener('click', function() {
+        document.querySelector('.instruments-included').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+}
