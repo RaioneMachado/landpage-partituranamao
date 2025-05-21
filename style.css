@@ -1738,3 +1738,57 @@ footer {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }
+/* Antialiasing para fontes mais suaves */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* Reduz transições para evitar travamentos */
+* {
+    will-change: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0); /* força renderização via GPU */
+}
+
+/* Evita animações pesadas em dispositivos fracos */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Previne repaints constantes em elementos com animações */
+img, video {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px; /* fallback height */
+}
+
+/* Lazy load básico para imagens (complementa o HTML) */
+img {
+    loading: lazy;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Esconde scroll horizontal e previne reflow */
+body {
+    overflow-x: hidden;
+}
+
+/* Define um layout estável para evitar "salto de conteúdo" */
+body, html {
+    min-height: 100%;
+}
+
+/* Tipografia otimizada */
+body {
+    font-display: swap;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
