@@ -61,22 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
-    // Efeito de digitação no cabeçalho
-    const headerText = document.querySelector('.header-content h2');
-    if (headerText) {
-        const originalText = headerText.textContent;
-        headerText.textContent = '';
-        
-        let i = 0;
-        const typingEffect = setInterval(() => {
-            if (i < originalText.length) {
-                headerText.textContent += originalText.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingEffect);
-            }
-        }, 50);
-    }
+
     
     // Efeito de scroll suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -89,20 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Efeito de parallax
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.pageYOffset;
-        const lightEffect = document.querySelector('.light-effect');
-        const lightEffect2 = document.querySelector('.light-effect-2');
-        
-        if (lightEffect) {
-            lightEffect.style.transform = `translate(${scrollPosition * 0.1}px, ${scrollPosition * 0.1}px)`;
-        }
-        
-        if (lightEffect2) {
-            lightEffect2.style.transform = `translate(${scrollPosition * 0.05}px, ${scrollPosition * 0.05}px)`;
-        }
-    });
+ 
     
     // Botão principal CTA
     const mainCTA = document.querySelector('.btn-main');
