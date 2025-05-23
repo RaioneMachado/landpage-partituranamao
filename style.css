@@ -76,12 +76,10 @@ body {
         transform: translate(-50px, 50px);
     }
 }
-
 /* ===== SEÇÃO DO HEADER COM FUNDO MUSICAL ===== */
 .header-section {
     position: relative;
     padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-color) 100%);
     overflow: hidden;
     margin: clamp(1.5rem, 4vw, 3rem) 0;
     border-top: 1px solid rgba(255, 215, 0, 0.2);
@@ -92,6 +90,19 @@ body {
     text-align: center;
     width: 100%;
     box-sizing: border-box;
+    min-height: 300px; /* Altura mínima para a capa */
+}
+
+/* Nova classe para a imagem de fundo */
+.header-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Coloca atrás de todos os outros elementos */
+    opacity: 0.9; /* Ajuste a opacidade conforme necessário */
 }
 
 .header-bg {
@@ -101,14 +112,15 @@ body {
     width: 100%;
     height: 100%;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="50" font-family="Arial" font-size="14" fill="%234F5832" opacity="0.05">🎵 📄 ♫ ♩ ♬ ♭</text></svg>');
-    opacity: 0.1;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro para melhor contraste */
+    mix-blend-mode: multiply;
     z-index: 0;
     pointer-events: none;
 }
 
 .header-content {
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Aumentei para garantir que fique acima de tudo */
     max-width: 900px;
     padding: 0 1.5rem;
 }
@@ -117,37 +129,33 @@ body {
     font-family: var(--font-title);
     font-weight: 900;
     font-size: clamp(1.5rem, 4vw, 2rem);
-    color: var(--text-color);
+    color: white; /* Mudei para branco para melhor contraste */
     margin: 0 auto 1rem;
     line-height: 1.4;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Sombra mais forte */
 }
 
-/* === ESTILO DO DESTAQUE === */
+/* Ajuste no destaque para ficar visível */
 .destaque {
-    color: darkgoldenrod;
+    color: gold; /* Mudei para gold para melhor visibilidade */
     font-weight: 900;
     position: relative;
     display: inline-block;
     padding: 0 0.3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.destaque::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, darkgoldenrod, transparent);
-    border-radius: 2px;
-    opacity: 0.7;
+/* Restante do seu CSS permanece igual */
+.musical-notes {
+    /* Seus estilos atuais */
+    z-index: 2; /* Garante que fique acima do fundo */
 }
 
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
     .header-section {
         padding: 2rem 1rem;
+        min-height: 250px;
     }
     
     .header-content h2 {
@@ -157,13 +165,12 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header-content h2 {
-        font-size: 1.2rem;
+    .header-section {
+        min-height: 200px;
     }
     
-    .destaque::after {
-        bottom: -2px;
-        height: 1px;
+    .header-content h2 {
+        font-size: 1.2rem;
     }
 }
 /* Grid de Instrumentos - Versão Final Corrigida */
