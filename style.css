@@ -405,6 +405,24 @@ body {
         padding: 2rem;
     }
 }
+
+.instrument-description {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.inline-icon {
+  width: 1em;       /* Tamanho igual à fonte */
+  height: 1em;      /* Tamanho igual à fonte */
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 2px;
+  position: relative;
+  top: -1px;        /* Ajuste fino de posição */
+}
+
 /* Seção CTA */
 .cta-section {
     text-align: center;
