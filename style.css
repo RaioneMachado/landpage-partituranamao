@@ -407,22 +407,41 @@ body {
 }
 
 .instrument-description {
-  display: flex;
+  display: inline-flex;  /* Mudei para inline-flex */
   align-items: center;
-  gap: 5px;
-  white-space: nowrap;
+  gap: 0.3em;           /* Usei unidades relativas */
+  white-space: normal;   /* Permite quebra em mobile */
+  flex-wrap: wrap;       /* Permite quebra quando necessário */
+  line-height: 1.4;      /* Melhor espaçamento */
 }
 
 .inline-icon {
-  width: 1em;       /* Tamanho igual à fonte */
-  height: 1em;      /* Tamanho igual à fonte */
-  vertical-align: middle;
-  display: inline-block;
-  margin: 0 2px;
-  position: relative;
-  top: -1px;        /* Ajuste fino de posição */
+  width: 1.1em;         /* Tamanho ligeiramente maior */
+  height: 1.1em;
+  object-fit: contain;   /* Garante proporção */
+  vertical-align: -0.2em; /* Alinhamento mais preciso */
+  flex-shrink: 0;       /* Impede redução em telas pequenas */
 }
 
+/* Media Queries para ajustes específicos */
+@media (max-width: 768px) {
+  .instrument-description {
+    font-size: 0.9rem;  /* Reduz fonte em mobile */
+    gap: 0.2em;
+  }
+  
+  .inline-icon {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .instrument-description {
+    white-space: normal; /* Permite quebra de linha */
+    flex-direction: row; /* Mantém alinhamento */
+  }
+}
 /* Seção CTA */
 .cta-section {
     text-align: center;
