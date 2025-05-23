@@ -77,78 +77,94 @@ body {
     }
 }
 
-/* ===== HEADER ESTÁTICO - SEM ANIMAÇÕES ===== */
-header {
+/* ===== SEÇÃO DO HEADER COM FUNDO MUSICAL ===== */
+.header-section {
+    position: relative;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-color) 100%);
+    overflow: hidden;
+    margin: clamp(1.5rem, 4vw, 3rem) 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="50" font-family="Arial" font-size="14" fill="%234F5832" opacity="0.05">🎵 📄 ♫ ♩ ♬ ♭</text></svg>');
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.header-content {
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    padding: 0 1.5rem;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.logo {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-    /* Sem animação */
-}
-
-h1, h2, h3 {
+.header-content h2 {
     font-family: var(--font-title);
     font-weight: 900;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-}
-
-h1 {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    background: linear-gradient(to right, var(--secondary-color), #ffffff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: var(--text-color);
+    margin: 0 auto 1rem;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header-content p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
-    color: var(--text-color);
-}
-
-/* === DESTAQUE ESTÁTICO === */
+/* === ESTILO DO DESTAQUE === */
 .destaque {
     color: darkgoldenrod;
     font-weight: 900;
-    text-transform: uppercase;
     position: relative;
     display: inline-block;
-    padding: 0 5px;
+    padding: 0 0.3rem;
 }
 
 .destaque::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: var(--secondary-color); /* Linha estática */
+    height: 2px;
+    background: linear-gradient(90deg, transparent, darkgoldenrod, transparent);
     border-radius: 2px;
-    /* REMOVIDA a animação */
+    opacity: 0.7;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+    .header-section {
+        padding: 2rem 1rem;
+    }
+    
+    .header-content h2 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .destaque::after {
+        bottom: -2px;
+        height: 1px;
+    }
 }
 /* Grid de Instrumentos - Versão Final Corrigida */
 .instrument-grid {
