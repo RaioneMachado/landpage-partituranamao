@@ -1988,3 +1988,343 @@ body {
     line-height: 1.6;
 }
 
+/* Seção de Partituras - Estilo Consistente com o Tema */
+.featured-section {
+    position: relative;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-color) 100%);
+    overflow: hidden;
+    margin: clamp(1.5rem, 4vw, 3rem) 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.featured-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="50" font-family="Arial" font-size="14" fill="%234F5832" opacity="0.05">♪ ♫ ♩ ♬ ♭</text></svg>');
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.featured-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.featured-badge {
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent-color), #ff8c8c);
+    color: white;
+    padding: clamp(0.4rem, 1vw, 0.5rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
+    text-transform: uppercase;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.featured-section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+    background: linear-gradient(to right, var(--secondary-color), #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    line-height: 1.2;
+}
+
+.featured-description {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--text-color);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    font-style: italic;
+}
+
+.music-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.music-column {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.music-column h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.music-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+}
+
+.featured-benefits {
+    list-style: none;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+}
+
+.featured-benefits li {
+    margin-bottom: clamp(0.5rem, 1vw, 0.8rem);
+    position: relative;
+    padding-left: clamp(1.5rem, 4vw, 2rem);
+    color: #ddd;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.4;
+}
+
+.featured-benefits i {
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    color: var(--secondary-color);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.bonus-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(255, 215, 0, 0.3);
+}
+
+.bonus-section h3 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-title);
+    text-align: center;
+}
+
+.featured-price {
+    margin: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.price-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+    flex-wrap: wrap;
+}
+
+.original-price {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--old-price-color);
+    text-decoration: line-through;
+}
+
+.discount {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.2rem clamp(0.5rem, 1.5vw, 0.8rem);
+    border-radius: 50px;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    font-weight: bold;
+}
+
+.final-price {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-family: var(--font-title);
+    line-height: 1;
+}
+
+.featured-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: clamp(0.5rem, 2vw, 1rem) 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    width: 100%;
+    max-width: 350px;
+}
+
+.featured-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.featured-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 88, 50, 0.6);
+}
+
+.featured-btn:hover::before {
+    left: 100%;
+}
+
+.featured-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.3rem, 1vw, 0.5rem);
+    color: #aaa;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+}
+
+.featured-timer i {
+    color: var(--accent-color);
+}
+
+.featured-timer strong {
+    color: var(--secondary-color);
+}
+
+.musical-notes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.note {
+    position: absolute;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: rgba(255, 215, 0, 0.3);
+    animation: float-note 15s infinite linear;
+}
+
+.note:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.note:nth-child(2) {
+    top: 30%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.note:nth-child(3) {
+    top: 70%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.note:nth-child(4) {
+    top: 50%;
+    left: 60%;
+    animation-delay: 6s;
+}
+
+.note:nth-child(5) {
+    top: 80%;
+    left: 85%;
+    animation-delay: 8s;
+}
+
+/* Animações */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float-note {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .music-list-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .music-column {
+        min-width: 100%;
+    }
+    
+    .featured-benefits li {
+        padding-left: 1.8rem;
+    }
+}
