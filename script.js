@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     instrumentCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            const instrument = this.getAttribute('data-instrument');
             const img = this.querySelector('img');
             
             // Adiciona classe de efeito
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
     // Countdown timer
     function updateCountdown() {
@@ -51,21 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
-
-    
     // Efeito de scroll suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
-    
- 
-    
+
     // Botão principal CTA
     const mainCTA = document.querySelector('.btn-main');
     if (mainCTA) {
@@ -75,190 +68,197 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
-// Atualizar o contador regressivo da seção em destaque
-function updateFeaturedCountdown() {
-    const now = new Date();
-    const midnight = new Date();
-    midnight.setHours(24, 0, 0, 0);
-    
-    const diff = midnight - now;
-    
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    
-    document.getElementById('featured-hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('featured-minutes').textContent = minutes.toString().padStart(2, '0');
-}
 
-updateFeaturedCountdown();
-setInterval(updateFeaturedCountdown, 60000);
-
-// Efeito de clique no botão de destaque
-const featuredBtn = document.querySelector('.featured-btn');
-if (featuredBtn) {
-    featuredBtn.addEventListener('click', function() {
-        // Efeito visual
-        this.classList.add('clicked');
-        setTimeout(() => {
-            this.classList.remove('clicked');
-        }, 300);
+    // Atualizar o contador regressivo da seção em destaque
+    function updateFeaturedCountdown() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(24, 0, 0, 0);
         
-        // Redirecionamento (substitua pela sua lógica)
-        alert('Redirecionando para a página de compra da partitura em destaque!');
-        // window.location.href = 'checkout.html?product=featured';
-    });
-}
-
-// Criar notas musicais dinâmicas
-function createMusicalNotes() {
-    const notesContainer = document.querySelector('.musical-notes');
-    if (!notesContainer) return;
-    
-    const notes = ['♪', '♫', '♩', '♬', '♭', '♮', '♯'];
-    const colors = ['rgba(255, 215, 0, 0.3)', 'rgba(79, 88, 50, 0.3)', 'rgba(255, 107, 107, 0.3)'];
-    
-    for (let i = 0; i < 15; i++) {
-        const note = document.createElement('div');
-        note.className = 'note';
-        note.textContent = notes[Math.floor(Math.random() * notes.length)];
-        note.style.left = `${Math.random() * 100}%`;
-        note.style.top = `${Math.random() * 100}%`;
-        note.style.fontSize = `${Math.random() * 2 + 1}rem`;
-        note.style.color = colors[Math.floor(Math.random() * colors.length)];
-        note.style.animationDuration = `${Math.random() * 10 + 10}s`;
-        note.style.animationDelay = `${Math.random() * 5}s`;
+        const diff = midnight - now;
         
-        notesContainer.appendChild(note);
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        const featuredHours = document.getElementById('featured-hours');
+        const featuredMinutes = document.getElementById('featured-minutes');
+        
+        if (featuredHours) featuredHours.textContent = hours.toString().padStart(2, '0');
+        if (featuredMinutes) featuredMinutes.textContent = minutes.toString().padStart(2, '0');
     }
-}
 
-createMusicalNotes();
-// Animação 3D dos instrumentos
-function animate3dInstruments() {
-    const instruments = document.querySelectorAll('.instrument-3d');
-    if (!instruments.length) return;
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth) - 0.5;
-        mouseY = (e.clientY / window.innerHeight) - 0.5;
-    });
-    
-    function updateInstruments() {
-        instruments.forEach(instrument => {
-            const instrumentType = instrument.getAttribute('data-instrument');
-            let rotateX, rotateY;
+    updateFeaturedCountdown();
+    setInterval(updateFeaturedCountdown, 60000);
+
+    // Efeito de clique no botão de destaque
+    const featuredBtn = document.querySelector('.featured-btn');
+    if (featuredBtn) {
+        featuredBtn.addEventListener('click', function() {
+            // Efeito visual
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 300);
             
-            switch(instrumentType) {
-                case 'flauta':
-                    rotateX = mouseY * 20;
-                    rotateY = mouseX * 20;
-                    instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
-                    break;
-                case 'violino':
-                    rotateX = mouseY * 20;
-                    rotateY = mouseX * 20;
-                    instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
-                    break;
-                case 'trompete':
-                    rotateX = mouseY * 20;
-                    rotateY = mouseX * 20;
-                    instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
-                    break;
-                case 'violoncelo':
-                    rotateX = mouseY * 20;
-                    rotateY = mouseX * 20;
-                    instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
-                    break;
+            // Redirecionamento
+            alert('Redirecionando para a página de compra da partitura em destaque!');
+        });
+    }
+
+    // Criar notas musicais dinâmicas
+    function createMusicalNotes() {
+        const notesContainer = document.querySelector('.musical-notes');
+        if (!notesContainer) return;
+        
+        const notes = ['♪', '♫', '♩', '♬', '♭', '♮', '♯'];
+        const colors = ['rgba(255, 215, 0, 0.3)', 'rgba(79, 88, 50, 0.3)', 'rgba(255, 107, 107, 0.3)'];
+        
+        for (let i = 0; i < 15; i++) {
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            note.style.left = `${Math.random() * 100}%`;
+            note.style.top = `${Math.random() * 100}%`;
+            note.style.fontSize = `${Math.random() * 2 + 1}rem`;
+            note.style.color = colors[Math.floor(Math.random() * colors.length)];
+            note.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            note.style.animationDelay = `${Math.random() * 5}s`;
+            
+            notesContainer.appendChild(note);
+        }
+    }
+
+    createMusicalNotes();
+
+    // Animação 3D dos instrumentos
+    function animate3dInstruments() {
+        const instruments = document.querySelectorAll('.instrument-3d');
+        if (!instruments.length) return;
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+        
+        function updateInstruments() {
+            instruments.forEach(instrument => {
+                const instrumentType = instrument.getAttribute('data-instrument');
+                let rotateX, rotateY;
+                
+                switch(instrumentType) {
+                    case 'flauta':
+                        rotateX = mouseY * 20;
+                        rotateY = mouseX * 20;
+                        instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
+                        break;
+                    case 'violino':
+                        rotateX = mouseY * 20;
+                        rotateY = mouseX * 20;
+                        instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
+                        break;
+                    case 'trompete':
+                        rotateX = mouseY * 20;
+                        rotateY = mouseX * 20;
+                        instrument.style.transform = `rotateY(${20 + rotateY}deg) rotateZ(${10 + rotateX}deg)`;
+                        break;
+                    case 'violoncelo':
+                        rotateX = mouseY * 20;
+                        rotateY = mouseX * 20;
+                        instrument.style.transform = `rotateY(${-20 + rotateY}deg) rotateZ(${-10 + rotateX}deg)`;
+                        break;
+                }
+            });
+            
+            requestAnimationFrame(updateInstruments);
+        }
+        
+        updateInstruments();
+    }
+
+    animate3dInstruments();
+
+    // Efeito de clique no botão do pacote
+    const orchestraBtn = document.querySelector('.orchestra-btn');
+    if (orchestraBtn) {
+        orchestraBtn.addEventListener('click', function() {
+            // Efeito de clique
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 300);
+            
+            // Efeito de confete
+            createConfetti();
+            
+            // Redirecionamento
+            setTimeout(() => {
+                alert('Redirecionando para a página de compra do Pacote Orquestral!');
+            }, 1000);
+        });
+    }
+
+    // Efeito de confete
+    function createConfetti() {
+        const colors = ['#4F5832', '#FFD700', '#FF6B6B', '#ffffff'];
+        const container = document.querySelector('.orchestra-section');
+        if (!container) return;
+        
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            confetti.style.width = `${Math.random() * 10 + 5}px`;
+            confetti.style.height = `${Math.random() * 10 + 5}px`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            
+            container.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+    }
+
+    // Adicionar estilos dinâmicos para o confetti
+    const style = document.createElement('style');
+    style.textContent = `
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confetti-fall linear forwards;
+            z-index: 10;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: rotate(720deg) translateX(50px);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Scroll suave para os instrumentos incluídos
+    const scrollHint = document.querySelector('.orchestra-scroll-hint');
+    if (scrollHint) {
+        scrollHint.addEventListener('click', function() {
+            const target = document.querySelector('.instruments-included');
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-        
-        requestAnimationFrame(updateInstruments);
     }
-    
-    updateInstruments();
-}
-
-animate3dInstruments();
-
-// Efeito de clique no botão do pacote
-const orchestraBtn = document.querySelector('.orchestra-btn');
-if (orchestraBtn) {
-    orchestraBtn.addEventListener('click', function() {
-        // Efeito de clique
-        this.classList.add('clicked');
-        setTimeout(() => {
-            this.classList.remove('clicked');
-        }, 300);
-        
-        // Efeito de confete
-        createConfetti();
-        
-        // Redirecionamento (substitua pela sua lógica)
-        setTimeout(() => {
-            alert('Redirecionando para a página de compra do Pacote Orquestral!');
-            // window.location.href = 'checkout.html?product=orchestra-pack';
-        }, 1000);
-    });
-}
-
-// Efeito de confete
-function createConfetti() {
-    const colors = ['#4F5832', '#FFD700', '#FF6B6B', '#ffffff'];
-    const container = document.querySelector('.orchestra-section');
-    
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-        confetti.style.width = `${Math.random() * 10 + 5}px`;
-        confetti.style.height = `${Math.random() * 10 + 5}px`;
-        confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        
-        container.appendChild(confetti);
-        
-        setTimeout(() => {
-            confetti.remove();
-        }, 3000);
-    }
-}
-
-// Adicionar estilos dinâmicos para o confetti
-const style = document.createElement('style');
-style.textContent = `
-    .confetti {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        animation: confetti-fall linear forwards;
-        z-index: 10;
-    }
-    
-    @keyframes confetti-fall {
-        0% {
-            top: -10px;
-            opacity: 1;
-        }
-        100% {
-            top: 100%;
-            opacity: 0;
-            transform: rotate(720deg) translateX(50px);
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// Scroll suave para os instrumentos incluídos
-const scrollHint = document.querySelector('.orchestra-scroll-hint');
-if (scrollHint) {
-    scrollHint.addEventListener('click', function() {
-        document.querySelector('.instruments-included').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-}
+});
