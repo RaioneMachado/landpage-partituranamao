@@ -28,19 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.style.filter = 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))';
             }
         });
-        
-        // Redirecionamento ao clicar no botão
-        const buyBtn = card.querySelector('.btn-buy');
-        if (buyBtn) {
-            buyBtn.addEventListener('click', function() {
-                const instrument = card.getAttribute('data-instrument');
-                // Aqui você pode redirecionar para a página específica do instrumento
-                // window.location.href = `partituras/${instrument}.html`;
-                alert(`Redirecionando para partituras de ${instrument}`);
-            });
-        }
     });
-    
+});
+
     // Countdown timer
     function updateCountdown() {
         const now = new Date();
