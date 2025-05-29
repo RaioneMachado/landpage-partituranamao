@@ -2398,3 +2398,24 @@ body {
         font-size: 1.1em;
     }
 }
+/* Espaçamento para o container do WhatsApp */
+.whatsapp-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo básico do botão do WhatsApp */
+.whatsapp-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Ícone do WhatsApp */
+.whatsapp-button i {
+    margin-right: 8px;
+}
