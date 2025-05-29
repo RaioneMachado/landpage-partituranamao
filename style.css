@@ -2419,3 +2419,22 @@ body {
 .whatsapp-button i {
     margin-right: 8px;
 }
+/* Apenas o estilo do novo botão */
+.btn-musicas-incluidas {
+  display: block; /* Faz ficar em uma linha separada */
+  margin: 15px auto 0; /* Espaçamento em cima e centralizado */
+  padding: 12px 20px;
+  background-color: #434B2B; /* Cor que você pediu */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  max-width: 300px; /* Largura máxima para não ficar muito largo */
+  transition: background-color 0.3s;
+}
+
+/* Efeito hover (opcional) */
+.btn-musicas-incluidas:hover {
+  background-color: #353c22; /* Tom mais escuro para hover */
+}
