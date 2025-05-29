@@ -24,8 +24,8 @@ body {
     font-family: var(--font-body);
     background-color: var(--bg-color);
     color: var(--text-color);
-    overflow-x: hidden;
-    position: relative;
+    overflow-x: hidden; /* Mantém isso */
+    position: relative; /* Adiciona isso */
 }
 
 /* Efeitos de Luz */
@@ -2326,5 +2326,75 @@ body {
     
     .featured-benefits li {
         padding-left: 1.8rem;
+    }
+}
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+  }
+  
+  .whatsapp-icon {
+    margin-top: 15px;
+  }
+/* Container do botão WhatsApp */
+.whatsapp-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilo do botão de WhatsApp */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+    .whatsapp-button {
+        padding: 10px 20px;
+    }
+    
+    .whatsapp-button i {
+        margin-right: 8px;
+        font-size: 1.1em;
     }
 }
