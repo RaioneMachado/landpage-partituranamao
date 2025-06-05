@@ -426,9 +426,15 @@
         <h2 class="section-title">Pesquisa + Presente</h2>
         <p class="section-subtitle">Responda rapidamente e ganhe partituras grátis!</p>
         
+        <!-- Contador de downloads -->
+        <div class="download-counter" style="margin-bottom: 20px; padding: 15px; background: rgba(0,170,255,0.1); border-radius: 8px;">
+            <p style="margin: 0; font-size: 1.1rem; color: #00AAFF;">
+                <strong><span id="download-count">0</span> pessoas</strong> já baixaram esta partitura!
+            </p>
+        </div>
+        
         <form id="survey-form" action="https://docs.google.com/forms/d/e/1FAIpQLScLf6llbppMuJfrjPeSM-th9crDWsDFGNtCDjx3wTvPGPnX8g/formResponse" method="POST" target="hiddenFrame">
             <input type="hidden" name="fvv" value="1">
-            
             <div class="form-content">
                 <div class="form-group">
                     <label for="name">Seu Nome</label>

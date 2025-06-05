@@ -374,3 +374,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+    // Inicializa o contador quando a página carrega
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verifica se já existe um contador no localStorage
+        if(localStorage.getItem('downloadCount')) {
+            document.getElementById('download-count').textContent = localStorage.getItem('downloadCount');
+        } else {
+            // Valor inicial se for a primeira vez
+            localStorage.setItem('downloadCount', '1250'); // Você pode começar com um número base
+            document.getElementById('download-count').textContent = '1250';
+        }
+    });
+
+    // Função para incrementar o contador
+    function incrementDownloadCount() {
+        let currentCount = parseInt(localStorage.getItem('downloadCount')) || 1250;
+        currentCount += 1;
+        localStorage.setItem('downloadCount', currentCount.toString());
+        document.getElementById('download-count').textContent = currentCount;
+        
+        // Você pode adicionar aqui uma chamada para salvar no servidor se quiser
+    }
