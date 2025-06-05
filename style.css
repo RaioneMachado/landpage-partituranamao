@@ -2438,3 +2438,365 @@ body {
 .btn-musicas-incluidas:hover {
   background-color: #353c22; /* Tom mais escuro para hover */
 }
+
+/* ===== ESTILOS GERAIS DA SEÇÃO ===== */
+.survey-section {
+    position: relative;
+    padding: clamp(3rem, 6vw, 5rem) 1rem;
+    background: linear-gradient(135deg, #1a2e1a 0%, #0d1a0d 100%);
+    border-top: 1px solid rgba(255, 215, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+    overflow: hidden;
+}
+
+.survey-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="10" y="50" font-family="Arial" font-size="14" fill="%233a4a2a" opacity="0.08">♪ ♫ ♩ ♬ ♭</text></svg>');
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TÍTULOS ===== */
+.section-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #d4af37, #f4e6c8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: #c0c0c0;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ===== CONTAINER DO FORMULÁRIO ===== */
+.form-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    background: rgba(15, 23, 15, 0.85);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+/* ===== ESTILOS DO FORMULÁRIO ===== */
+.form-group {
+    margin-bottom: 1.8rem;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: #d4af37;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    letter-spacing: 0.5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(10, 15, 10, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: #f0f0f0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* ===== RADIO BUTTONS PERSONALIZADOS ===== */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    color: #e0e0e0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.radio-group label:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.radio-group input[type="radio"] {
+    appearance: none;
+    width: 1.3em;
+    height: 1.3em;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+    border-color: #d4af37;
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.7em;
+    height: 0.7em;
+    background: #d4af37;
+    border-radius: 50%;
+}
+
+/* ===== OPÇÃO "OUTRO" ===== */
+.other-option {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.other-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.8rem;
+    background: rgba(10, 15, 10, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 6px;
+    color: #f0f0f0;
+    font-size: 0.95rem;
+}
+
+/* ===== BOTÃO DE DOWNLOAD ===== */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, #d4af37 0%, #b89528 100%);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    background: linear-gradient(135deg, #dbb642 0%, #c9a130 100%);
+}
+
+.download-btn i {
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover i {
+    transform: translateY(2px);
+}
+
+.form-disclaimer {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ===== PRÉ-VISUALIZAÇÃO DO DOWNLOAD ===== */
+.download-preview {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.preview-label {
+    font-family: 'Montserrat', sans-serif;
+    color: #d4af37;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.preview-list {
+    list-style: none;
+    width: 100%;
+    max-width: 280px;
+}
+
+.preview-list li {
+    margin-bottom: 0.8rem;
+    color: #e0e0e0;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.preview-list i {
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: #d4af37;
+    font-size: 1.1rem;
+}
+
+/* ===== MENSAGEM DE SUCESSO ===== */
+.download-success {
+    background: rgba(15, 23, 15, 0.95);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.success-icon {
+    font-size: 4.5rem;
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    animation: bounce 1s ease;
+}
+
+.download-success h3 {
+    font-size: 1.8rem;
+    color: #d4af37;
+    margin-bottom: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.download-success p {
+    font-size: 1.1rem;
+    margin-bottom: 1.8rem;
+    color: #e0e0e0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.download-link-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #d4af37 0%, #b89528 100%);
+    color: #1a1a1a;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    font-size: 1.1rem;
+}
+
+.download-link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    background: linear-gradient(135deg, #dbb642 0%, #c9a130 100%);
+}
+
+.success-tip {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .form-content {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    
+    .download-preview {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .download-success {
+        padding: 1.5rem;
+    }
+    
+    .download-success h3 {
+        font-size: 1.5rem;
+    }
+    
+    .download-success p {
+        font-size: 1rem;
+    }
+}

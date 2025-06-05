@@ -262,3 +262,115 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('survey-form');
+    const successMessage = document.getElementById('success-message');
+    const reasonGroup = document.getElementById('reason-group');
+    const submitBtn = form.querySelector('.download-btn');
+
+    // 1. MOSTRAR/OCULTAR MOTIVO SE ESCOLHER "não vou comprar"
+    document.querySelectorAll('input[name="entry.1465811703"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            const show = this.value === 'não vou comprar desta vez';
+            reasonGroup.style.display = show ? 'block' : 'none';
+
+            if (!show) {
+                document.querySelectorAll('input[name="entry.920632076"]').forEach(r => r.checked = false);
+                const otherInput = document.querySelector('input[name="entry.920632076.other_option_response"]');
+                if (otherInput) otherInput.value = '';
+            }
+        });
+    });
+
+    // 2. LÓGICA PARA CAMPO "Outro"
+    document.querySelectorAll('.other-input').forEach(input => {
+        const associatedRadio = input.closest('.other-option').querySelector('input[type="radio"]');
+
+        input.addEventListener('input', function () {
+            if (this.value.trim() !== '') {
+                associatedRadio.checked = true;
+                associatedRadio.value = this.value;
+            }
+        });
+
+        input.addEventListener('blur', function () {
+            associatedRadio.value = this.value || "Outro";
+        });
+    });
+
+    // 3. ENVIO DO FORMULÁRIO
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const mainChoice = document.querySelector('input[name="entry.1465811703"]:checked');
+
+        if (!name || !email || !mainChoice) {
+            alert('Por favor, preencha pelo menos seu nome, e-mail e selecione uma opção.');
+            return;
+        }
+
+        if (mainChoice.value === 'não vou comprar desta vez') {
+            const reasonSelected = document.querySelector('input[name="entry.920632076"]:checked');
+            if (!reasonSelected) {
+                alert('Por favor, selecione o motivo.');
+                return;
+            }
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Enviando...</span><i class="fas fa-spinner fa-spin"></i>';
+
+        // Envia via iframe (Google Forms)
+        form.submit();
+
+        // Exibe mensagem de sucesso e download
+        setTimeout(() => {
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Liberar Download</span><i class="fas fa-download"></i>';
+        }, 1500);
+    });
+
+    // 4. SALVA DADOS NO LOCALSTORAGE ANTES DE RECARREGAR
+    window.addEventListener('beforeunload', function () {
+        const formInputs = Array.from(form.elements).filter(el => el.name);
+        const formState = {};
+
+        formInputs.forEach(input => {
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                if (input.checked) formState[input.name] = input.value;
+            } else {
+                formState[input.name] = input.value;
+            }
+        });
+
+        localStorage.setItem('formBackup', JSON.stringify(formState));
+    });
+
+    // 5. RECUPERA DADOS SALVOS AO CARREGAR A PÁGINA
+    const savedData = localStorage.getItem('formBackup');
+    if (savedData) {
+        const formState = JSON.parse(savedData);
+        Object.keys(formState).forEach(name => {
+            const input = form.querySelectorAll(`[name="${name}"]`);
+            input.forEach(el => {
+                if (el.type === 'radio' || el.type === 'checkbox') {
+                    if (el.value === formState[name]) el.checked = true;
+                } else {
+                    el.value = formState[name];
+                }
+            });
+        });
+
+        // Reexibe motivo, se necessário
+        const mainChoice = document.querySelector('input[name="entry.1465811703"]:checked');
+        if (mainChoice && mainChoice.value === 'não vou comprar desta vez') {
+            reasonGroup.style.display = 'block';
+        }
+    }
+});

@@ -420,6 +420,101 @@
     </div>
 </section>
 
+<section class="survey-section">
+    <div class="container">
+        <h2 class="section-title">Pesquisa + Presente</h2>
+        <p class="section-subtitle">Responda rapidamente e ganhe partituras grátis!</p>
+        
+        <form id="survey-form" action="https://docs.google.com/forms/d/e/1FAIpQLScLf6llbppMuJfrjPeSM-th9crDWsDFGNtCDjx3wTvPGPnX8g/formResponse" method="POST" target="hiddenFrame">
+            <input type="hidden" name="fvv" value="1">
+            
+            <div class="form-content">
+                <div class="form-group">
+                    <label for="name">Seu Nome</label>
+                    <input type="text" id="name" name="entry.1183482670" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Seu Melhor E-mail</label>
+                    <input type="email" id="email" name="emailAddress" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Você pretende concluir alguma compra dessa vez?</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="entry.1465811703" value="sim, vou comprar para meu instrumento" required>
+                            <span>sim, vou comprar para meu instrumento</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="entry.1465811703" value="não vou comprar desta vez">
+                            <span>não vou comprar desta vez</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="entry.1465811703" value="ainda estou decidindo">
+                            <span>ainda estou decidindo</span>
+                        </label>
+                        <label class="other-option">
+                            <input type="radio" name="entry.1465811703" value="Outro">
+                            <span>Outro:</span>
+                            <input type="text" class="other-input" name="entry.1465811703.other_option_response">
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="reason-group" style="display: none;">
+                    <label>Se a sua resposta acima foi: "não vou comprar desta vez", qual seria o motivo?</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="entry.920632076" value="não tenho esse valor agora">
+                            <span>não tenho esse valor agora</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="entry.920632076" value="já tenho essas músicas">
+                            <span>já tenho essas músicas</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="entry.920632076" value="não estou seguro de comprar por aqui">
+                            <span>não estou seguro de comprar por aqui</span>
+                        </label>
+                        <label class="other-option">
+                            <input type="radio" name="entry.920632076" value="Outro">
+                            <span>Outro:</span>
+                            <input type="text" class="other-input" name="entry.920632076.other_option_response">
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="suggestions">O que você acha que deixaria esse tipo de material mais atrativo?</label>
+                    <textarea id="suggestions" name="entry.333333333" rows="3" placeholder="Sua opinião é muito importante para nós"></textarea>
+                </div>
+                
+                <button type="submit" class="download-btn">
+                    <span>Liberar Download</span>
+                    <i class="fas fa-download"></i>
+                </button>
+                
+                <p class="form-disclaimer">Ao enviar, você receberá imediatamente o link para download.</p>
+            </div>
+            
+
+        </form>
+        
+        <iframe name="hiddenFrame" style="display:none;"></iframe>
+        
+        <div class="download-success" id="success-message" style="display: none;">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Download Liberado!</h3>
+            <p>Obrigado por participar da nossa pesquisa. Seu link de download está pronto:</p>
+            <a href="https://1drv.ms/f/c/f9fc89051d9031ba/ErNpvftgO29KlVi44jiv3IkBp_zP_hmNihIX2tBqp0-pVw?e=sfaSAn" class="download-link-btn" target="_blank">Clique para Baixar Agora</a>
+            <p class="success-tip">Verifique também sua caixa de entrada (e spam) no e-mail <strong>partituranamao@gmail.com</strong></p>
+        </div>
+    </div>
+</section>
+
 
     <script src="script.js"></script>
     
