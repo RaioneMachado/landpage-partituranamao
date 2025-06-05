@@ -2800,3 +2800,29 @@ body {
         font-size: 1rem;
     }
 }
+@media (max-width: 600px) {
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .form-content {
+        padding: 1rem;
+    }
+
+    .download-btn {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+
+    .preview-list li {
+        font-size: 0.95rem;
+    }
+
+    .download-success h3 {
+        font-size: 1.4rem;
+    }
+
+    .download-success p {
+        font-size: 0.95rem;
+    }
+}
